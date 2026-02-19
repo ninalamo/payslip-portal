@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "../styles/PayslipModal.css";
 
 function fmt(n) {
@@ -18,12 +19,14 @@ const PDF_FILES = {
 
 export default function PayslipModal({ payslip, employee, onClose }) {
     const { compensation: c, deductions: d, ytd, netPay } = payslip;
+    const [pdfPreview, setPdfPreview] = useState(false);
+    const [showMenu, setShowMenu] = useState(false);
+
+    const pdfHref = PDF_FILES[payslip.id];
 
     const handleSimpleDownload = () => {
-        // Print the same layout but in black & white
-        document.body.classList.add("print-simple");
-        window.print();
-        setTimeout(() => document.body.classList.remove("print-simple"), 500);
+        if (!pdfHref) return;
+        setPdfPreview(true); // Show the PDF in an inline preview overlay
     };
 
     const handleColoredPrint = () => {
@@ -31,31 +34,71 @@ export default function PayslipModal({ payslip, employee, onClose }) {
         window.print();
     };
 
+    // ── Inline PDF Preview Overlay ──
+    if (pdfPreview) {
+        return (
+            <div className="modal-overlay" onClick={() => setPdfPreview(false)}>
+                <div className="pdf-preview-card" onClick={(e) => e.stopPropagation()}>
+                    <div className="pdf-preview-bar">
+
+                        <div className="pdf-preview-actions">
+                            <a
+                                className="dl-btn dl-simple"
+                                href={pdfHref}
+                                download={pdfHref.split("/").pop()}
+                            >
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="13" height="13">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                                    <polyline points="7 10 12 15 17 10" />
+                                    <line x1="12" y1="15" x2="12" y2="3" />
+                                </svg>
+                                Download
+                            </a>
+                            <button className="close-btn" onClick={() => setPdfPreview(false)}>✕</button>
+                        </div>
+                    </div>
+                    <iframe
+                        src={pdfHref}
+                        title="Payslip PDF Preview"
+                        className="pdf-preview-frame"
+                    />
+                </div>
+            </div>
+        );
+    }
+
     return (
         <div className="modal-overlay" onClick={onClose}>
             <div className="modal-card" onClick={(e) => e.stopPropagation()}>
 
                 {/* ── ACTION BAR (hidden on print) ── */}
                 <div className="modal-actions no-print">
-                    {/* Simple: same layout, black & white */}
-                    <button className="dl-btn dl-simple" onClick={handleSimpleDownload} title="Print in black & white">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="14" height="14">
-                            <polyline points="6 9 6 2 18 2 18 9" />
-                            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
-                            <rect x="6" y="14" width="12" height="8" />
-                        </svg>
-                        Print (Simple)
-                    </button>
-
-                    {/* Colored: same layout, full Shore360 colors */}
-                    <button className="dl-btn dl-colored" onClick={handleColoredPrint} title="Print with full Shore360 colors">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="14" height="14">
-                            <polyline points="6 9 6 2 18 2 18 9" />
-                            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
-                            <rect x="6" y="14" width="12" height="8" />
-                        </svg>
-                        Print (Colored)
-                    </button>
+                    {/* Split Button: Default Simple, Dropdown Colored */}
+                    <div className="split-btn">
+                        <button className="sb-main" onClick={handleSimpleDownload} title="Print / Download Original PDF">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="14" height="14">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                                <polyline points="7 10 12 15 17 10" />
+                                <line x1="12" y1="15" x2="12" y2="3" />
+                            </svg>
+                            Print (Simple)
+                        </button>
+                        <button className="sb-arrow" onClick={() => setShowMenu(!showMenu)} title="More options">
+                            ▼
+                        </button>
+                        {showMenu && (
+                            <div className="sb-menu">
+                                <button className="sb-item" onClick={() => { handleColoredPrint(); setShowMenu(false); }}>
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="14" height="14">
+                                        <polyline points="6 9 6 2 18 2 18 9" />
+                                        <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
+                                        <rect x="6" y="14" width="12" height="8" />
+                                    </svg>
+                                    Print (Colored)
+                                </button>
+                            </div>
+                        )}
+                    </div>
 
                     <button className="close-btn" onClick={onClose} title="Close">✕</button>
                 </div>

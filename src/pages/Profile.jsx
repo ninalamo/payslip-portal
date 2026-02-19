@@ -145,8 +145,11 @@ export default function Profile() {
             </div>
 
             <p className="profile-note">
-                ℹ️ Fields marked "—" were not available on HRHub at time of sync. To update your record, visit{" "}
-                <a href="https://shore360.hrhub.ph" target="_blank" rel="noreferrer">shore360.hrhub.ph</a>.
+                ℹ️ Fields marked "—" were not available on HRHub at time of sync.
+                <br />
+                <a href="https://shore360.hrhub.ph" target="_blank" rel="noreferrer">
+                    Visit shore360.hrhub.ph
+                </a>
             </p>
         </div>
     );

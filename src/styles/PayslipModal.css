@@ -356,3 +356,137 @@
         color: #111 !important;
     }
 }
+
+/* ── PDF PREVIEW OVERLAY ── */
+.pdf-preview-card {
+    background: #ffffff;
+    width: 90%;
+    height: 90%;
+    max-width: 1000px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+    animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pdf-preview-bar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 12px 20px;
+    background: #f8f9fa;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.pdf-preview-title {
+    font-weight: 700;
+    color: #1a1a1a;
+    font-size: 0.95rem;
+}
+
+.pdf-preview-actions {
+    display: flex;
+    gap: 12px;
+}
+
+.pdf-preview-frame {
+    flex: 1;
+    width: 100%;
+    border: none;
+    background: #525659;
+}
+
+@keyframes slideUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ── SPLIT BUTTON DROPDOWN ── */
+.split-btn {
+    display: flex;
+    position: relative;
+    font-family: 'Montserrat', sans-serif;
+    margin-right: 12px;
+}
+
+.sb-main {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #009ad9;
+    color: #ffffff;
+    border: none;
+    padding: 10px 16px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 4px 0 0 4px;
+    transition: background 0.2s;
+    height: 38px;
+}
+
+.sb-main:hover {
+    background: #0087be;
+}
+
+.sb-arrow {
+    background: #008cb9;
+    color: #ffffff;
+    border: none;
+    padding: 0 10px;
+    cursor: pointer;
+    border-radius: 0 4px 4px 0;
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+    transition: background 0.2s;
+    font-size: 0.7rem;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sb-arrow:hover {
+    background: #007ba1;
+}
+
+.sb-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 4px;
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    min-width: 180px;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    padding: 4px 0;
+    animation: fadeIn 0.15s ease;
+}
+
+.sb-item {
+    background: none;
+    border: none;
+    text-align: left;
+    padding: 10px 16px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    color: #333;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    white-space: nowrap;
+}
+
+.sb-item:hover {
+    background: #f5f5f5;
+    color: #009ad9;
+}

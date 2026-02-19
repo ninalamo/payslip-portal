@@ -141,7 +141,7 @@ export default function Dashboard({ page = "payslips" }) {
                             <span className="breadcrumb-label">Dashboard</span>
                             <span className="breadcrumb-sep">›</span>
                             <span className="breadcrumb-active">
-                                {page === "profile" ? "My Profile" : "My Payslips"}
+                                {page === "profile" ? "My Profile" : "Payroll Summary"}
                             </span>
                         </div>
                     </div>
@@ -160,10 +160,25 @@ export default function Dashboard({ page = "payslips" }) {
                         <Profile />
                     ) : (
                         <>
+                            {/* Retention notice (moved to top) */}
+                            <div className="retention-notice" style={{ marginBottom: "20px", marginTop: 0 }}>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="15" height="15" style={{ flexShrink: 0, marginTop: 1 }}>
+                                    <circle cx="12" cy="12" r="10" />
+                                    <line x1="12" y1="8" x2="12" y2="12" />
+                                    <line x1="12" y1="16" x2="12.01" y2="16" />
+                                </svg>
+                                <span>
+                                    The portal displays your <strong>5 most recent payslip periods</strong> in accordance with Shore360's
+                                    Employee Self-Service data retention policy. To request payslips older than 3 months, please submit
+                                    an <strong>HR Records Request</strong> via the helpdesk with your employee ID and the specific
+                                    pay period(s) required. Requests are processed within 3–5 business days.
+                                </span>
+                            </div>
+
                             {/* Section header with Dispute button */}
                             <div className="content-header">
                                 <div>
-                                    <h1 className="section-title">My Payslips</h1>
+                                    <h1 className="section-title">Payroll Summary</h1>
                                     <p className="section-sub">Showing your 5 most recent payslip periods</p>
                                 </div>
                                 <button
@@ -229,22 +244,6 @@ export default function Dashboard({ page = "payslips" }) {
                                         ))}
                                     </tbody>
                                 </table>
-                            </div>
-
-                            {/* Retention notice */}
-                            <div className="retention-notice">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="15" height="15" style={{ flexShrink: 0, marginTop: 1 }}>
-                                    <circle cx="12" cy="12" r="10" />
-                                    <line x1="12" y1="8" x2="12" y2="12" />
-                                    <line x1="12" y1="16" x2="12.01" y2="16" />
-                                </svg>
-                                <span>
-                                    The portal displays your <strong>5 most recent payslip periods</strong> in accordance with Shore360's
-                                    Employee Self-Service data retention policy. To request payslips older than 3 months, please submit
-                                    an <strong>HR Records Request</strong> via the helpdesk or email{" "}
-                                    <a href="mailto:hrhub@shore360.com">hrhub@shore360.com</a> with your employee ID and the specific
-                                    pay period(s) required. Requests are processed within 3–5 business days.
-                                </span>
                             </div>
                         </>
                     )}

@@ -7,21 +7,36 @@ const CREDENTIALS = {
     password: "compyl2025!!!",
 };
 
+const STORAGE_KEY = "shore360_user";
+
 export function AuthProvider({ children }) {
-    const [user, setUser] = useState(null);
+    // Initialize from localStorage so session survives refresh
+    const [user, setUser] = useState(() => {
+        try {
+            const stored = localStorage.getItem(STORAGE_KEY);
+            return stored ? JSON.parse(stored) : null;
+        } catch {
+            return null;
+        }
+    });
 
     const login = (username, password) => {
         if (
             username === CREDENTIALS.username &&
             password === CREDENTIALS.password
         ) {
-            setUser({ username });
+            const u = { username };
+            setUser(u);
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(u));
             return true;
         }
         return false;
     };
 
-    const logout = () => setUser(null);
+    const logout = () => {
+        setUser(null);
+        localStorage.removeItem(STORAGE_KEY);
+    };
 
     return (
         <AuthContext.Provider value={{ user, login, logout }}>
