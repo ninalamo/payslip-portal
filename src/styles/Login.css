@@ -1,0 +1,240 @@
+/* ── LOGIN PAGE – Shore360 split-panel style ── */
+.login-root {
+    min-height: 100vh;
+    display: flex;
+}
+
+/* ── LEFT TEAL PANEL ── */
+.login-left-panel {
+    width: 38%;
+    background-color: #009ad9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 48px;
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.login-left-panel::after {
+    content: '';
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 50%;
+    bottom: -120px;
+    right: -120px;
+    pointer-events: none;
+}
+
+.login-panel-content {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.login-panel-logo {
+    width: 200px;
+    height: auto;
+    /* Invert to white on the teal background */
+    filter: brightness(0) invert(1);
+    margin-bottom: 16px;
+}
+
+.login-panel-tagline {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+}
+
+.login-panel-divider {
+    width: 48px;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.5);
+    margin: 0 auto 24px;
+    border-radius: 2px;
+}
+
+.login-panel-desc {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 0.85rem;
+    line-height: 1.7;
+    font-weight: 400;
+    max-width: 280px;
+    margin: 0 auto;
+}
+
+/* ── RIGHT FORM PANEL ── */
+.login-right-panel {
+    flex: 1;
+    background: #f2f2f2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 32px;
+}
+
+.login-card {
+    background: #ffffff;
+    border-radius: 4px;
+    padding: 40px 44px 36px;
+    width: 420px;
+    max-width: 100%;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12), 0 3px 6px rgba(0, 0, 0, 0.18);
+}
+
+/* Logo in card */
+.login-logo-wrap {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 28px;
+}
+
+.login-card-logo {
+    width: 170px;
+    height: auto;
+}
+
+.login-heading {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin-bottom: 4px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.login-sub {
+    font-size: 0.78rem;
+    color: #686868;
+    text-align: center;
+    margin-bottom: 24px;
+    font-weight: 500;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.form-group label {
+    font-size: 0.76rem;
+    font-weight: 700;
+    color: #686868;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.form-group input {
+    background: #ffffff;
+    border: 1px solid #d0d0d0;
+    border-radius: 3px;
+    color: #1a1a1a;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.88rem;
+    padding: 10px 13px;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-group input::placeholder {
+    color: #b0b0b0;
+}
+
+.form-group input:focus {
+    border-color: #009ad9;
+    box-shadow: 0 0 0 2px rgba(0, 154, 217, 0.15);
+}
+
+/* Error */
+.login-error {
+    background: #fdf0f0;
+    border: 1px solid #f5c6c6;
+    border-radius: 3px;
+    color: #d92b2e;
+    font-size: 0.8rem;
+    padding: 8px 12px;
+    font-weight: 600;
+}
+
+/* Button – shore360 primary */
+.login-btn {
+    margin-top: 4px;
+    background-color: #0d99d6;
+    border: none;
+    border-radius: 3px;
+    color: #ffffff;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 700;
+    padding: 13px;
+    transition: all 0.1s linear;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 46px;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+}
+
+.login-btn:hover:not(:disabled) {
+    background-color: #14a9ea;
+    box-shadow: 0 6px 12px -2px rgba(50, 50, 93, 0.25), 0 3px 7px -3px rgba(0, 0, 0, 0.3);
+}
+
+.login-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* Spinner */
+.spinner {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Footer */
+.login-footer {
+    margin-top: 22px;
+    text-align: center;
+    font-size: 0.7rem;
+    color: #b0b0b0;
+    font-weight: 500;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+    .login-left-panel {
+        display: none;
+    }
+
+    .login-right-panel {
+        background: #ffffff;
+    }
+}

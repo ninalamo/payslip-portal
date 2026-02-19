@@ -1,0 +1,608 @@
+/* ── DASHBOARD – Shore360 style ── */
+.dashboard-root {
+    display: flex;
+    min-height: 100vh;
+    background: #f2f2f2;
+    font-family: 'Montserrat', 'Muli', Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* ── SIDEBAR ── */
+.sidebar {
+    width: 240px;
+    min-height: 100vh;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 100;
+    transition: width 0.25s ease;
+    overflow: hidden;
+    border-right: 1px solid #e0e0e0;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.06);
+}
+
+.sidebar.collapsed {
+    width: 64px;
+}
+
+.sidebar-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 18px 16px;
+    border-bottom: 1px solid #f0f0f0;
+    min-height: 70px;
+    white-space: nowrap;
+    background: #ffffff;
+}
+
+.sidebar-logo img {
+    height: 36px;
+    width: auto;
+    flex-shrink: 0;
+}
+
+.sidebar-brand {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #009ad9;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+}
+
+.sidebar-nav {
+    flex: 1;
+    padding: 12px 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.nav-section-label {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: #b0b0b0;
+    padding: 10px 10px 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-transform: uppercase;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    padding: 10px 12px;
+    border-radius: 4px;
+    color: #686868;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    background: none;
+    width: 100%;
+    transition: background 0.15s, color 0.15s;
+    white-space: nowrap;
+}
+
+.nav-item svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+}
+
+.nav-item:hover {
+    background: rgba(0, 154, 217, 0.08);
+    color: #009ad9;
+}
+
+.nav-item.active {
+    background: rgba(0, 154, 217, 0.10);
+    color: #009ad9;
+    font-weight: 700;
+    border-left: 3px solid #009ad9;
+}
+
+.sidebar-bottom {
+    padding: 10px 8px 16px;
+    border-top: 1px solid #f0f0f0;
+}
+
+.logout-btn {
+    color: #686868;
+}
+
+.logout-btn:hover {
+    color: #d92b2e;
+    background: rgba(217, 43, 46, 0.07);
+}
+
+/* ── MAIN WRAPPER ── */
+.main-wrapper {
+    margin-left: 240px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    transition: margin-left 0.25s ease;
+}
+
+.sidebar-collapsed-offset {
+    margin-left: 64px !important;
+}
+
+/* ── TOPBAR ── */
+.topbar {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: #ffffff;
+    border-bottom: 1px solid #e0e0e0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    height: 64px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.08);
+}
+
+.topbar-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.sidebar-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #686868;
+    padding: 6px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    transition: background 0.15s, color 0.15s;
+}
+
+.sidebar-toggle:hover {
+    background: #f2f2f2;
+    color: #009ad9;
+}
+
+.topbar-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.85rem;
+}
+
+.breadcrumb-label {
+    color: #b0b0b0;
+    font-weight: 500;
+}
+
+.breadcrumb-sep {
+    color: #d0d0d0;
+}
+
+.breadcrumb-active {
+    color: #1a1a1a;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+}
+
+.topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.topbar-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #009ad9;
+    color: #fff;
+    font-size: 0.78rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 0.04em;
+    flex-shrink: 0;
+}
+
+.topbar-name {
+    font-size: 0.83rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+.topbar-dept {
+    font-size: 0.7rem;
+    color: #686868;
+    font-weight: 500;
+}
+
+/* ── MAIN CONTENT ── */
+.main-content {
+    padding: 24px 28px;
+    flex: 1;
+}
+
+.content-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.section-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.section-sub {
+    font-size: 0.8rem;
+    color: #686868;
+    margin-top: 3px;
+    font-weight: 500;
+}
+
+/* Latest Net Pay Card */
+.latest-net {
+    background: #009ad9;
+    border-radius: 4px;
+    padding: 14px 20px;
+    text-align: right;
+    min-width: 200px;
+    box-shadow: 0 3px 6px rgba(0, 154, 217, 0.3);
+}
+
+.latest-net-label {
+    font-size: 0.68rem;
+    color: rgba(255, 255, 255, 0.8);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+}
+
+.latest-net-amount {
+    font-size: 1.55rem;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.2;
+    margin-top: 4px;
+}
+
+.latest-net-period {
+    font-size: 0.68rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 2px;
+    font-weight: 500;
+}
+
+/* ── TABLE CARD ── */
+.table-card {
+    background: #ffffff;
+    border-radius: 4px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+}
+
+.payslip-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+}
+
+.payslip-table thead tr {
+    background: #009ad9;
+    border-bottom: none;
+}
+
+.payslip-table th {
+    padding: 11px 16px;
+    text-align: left;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #ffffff;
+}
+
+.payslip-row {
+    border-bottom: 1px solid #f0f0f0;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.payslip-row:last-child {
+    border-bottom: none;
+}
+
+.payslip-row:hover {
+    background: rgba(0, 154, 217, 0.04);
+}
+
+.payslip-table td {
+    padding: 13px 16px;
+    color: #434651;
+    vertical-align: middle;
+}
+
+.align-right {
+    text-align: right !important;
+}
+
+.period-cell {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.period-icon {
+    width: 30px;
+    height: 30px;
+    background: rgba(0, 154, 217, 0.1);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #009ad9;
+    flex-shrink: 0;
+}
+
+.period-label {
+    font-weight: 700;
+    color: #1a1a1a;
+    text-transform: uppercase;
+    font-size: 0.82rem;
+}
+
+.date-cov {
+    color: #686868;
+    font-size: 0.8rem;
+}
+
+.gross {
+    color: #1a1a1a;
+    font-weight: 600;
+}
+
+.deductions {
+    color: #d92b2e;
+    font-weight: 500;
+}
+
+.net-pay {
+    color: #009ad9;
+    font-weight: 700;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.status-badge.released {
+    background: rgba(9, 210, 97, 0.12);
+    color: #09d261;
+    border: 1px solid rgba(9, 210, 97, 0.3);
+}
+
+.view-btn {
+    background: none;
+    border: 1px solid #009ad9;
+    border-radius: 3px;
+    color: #009ad9;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 5px 14px;
+    transition: background 0.15s, color 0.15s;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.view-btn:hover {
+    background: #009ad9;
+    color: #ffffff;
+}
+
+.disclaimer {
+    margin-top: 14px;
+    font-size: 0.7rem;
+    color: #b0b0b0;
+    text-align: center;
+    font-style: italic;
+}
+
+/* ── TOPBAR USER INFO ── */
+.topbar-user {
+    display: flex;
+    flex-direction: column;
+}
+
+/* ── PAYSLIP RETENTION NOTICE ── */
+.retention-notice {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-top: 14px;
+    background: rgba(0, 154, 217, 0.06);
+    border: 1px solid rgba(0, 154, 217, 0.2);
+    border-left: 3px solid #009ad9;
+    border-radius: 3px;
+    padding: 10px 14px;
+    font-size: 0.78rem;
+    color: #686868;
+    line-height: 1.6;
+}
+
+.retention-notice strong {
+    color: #1a1a1a;
+}
+
+.retention-notice a {
+    color: #009ad9;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.retention-notice a:hover {
+    text-decoration: underline;
+}
+
+/* ── RESPONSIVE SIDEBAR ── */
+@media (max-width: 900px) {
+    .sidebar {
+        width: 64px;
+    }
+
+    .main-wrapper {
+        margin-left: 64px;
+    }
+
+    .sidebar-brand,
+    .nav-item span,
+    .nav-section-label {
+        display: none;
+    }
+}
+
+/* ── DISPUTE / REQUEST BUTTON ── */
+.dispute-btn {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    background: #ffffff;
+    border: 1.5px solid #009ad9;
+    border-radius: 3px;
+    color: #009ad9;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 9px 16px;
+    transition: all 0.15s;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.dispute-btn:hover {
+    background: #009ad9;
+    color: #ffffff;
+}
+
+/* ── EXTERNAL LINK WARNING MODAL ── */
+.ext-modal {
+    background: #ffffff;
+    border-radius: 6px;
+    max-width: 460px;
+    width: 100%;
+    padding: 32px 28px 24px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: slideUp 0.2s ease;
+    text-align: center;
+}
+
+.ext-modal-icon {
+    font-size: 2.2rem;
+    margin-bottom: 12px;
+}
+
+.ext-modal-title {
+    font-size: 1rem;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin-bottom: 12px;
+    letter-spacing: 0.02em;
+}
+
+.ext-modal-body {
+    font-size: 0.81rem;
+    color: #686868;
+    line-height: 1.7;
+    margin-bottom: 14px;
+}
+
+.ext-modal-url {
+    font-size: 0.72rem;
+    background: #f2f2f2;
+    border: 1px solid #e0e0e0;
+    border-radius: 3px;
+    padding: 6px 12px;
+    color: #009ad9;
+    font-weight: 600;
+    word-break: break-all;
+    margin-bottom: 20px;
+}
+
+.ext-modal-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.ext-btn-cancel {
+    flex: 1;
+    padding: 9px 0;
+    border: 1.5px solid #e0e0e0;
+    border-radius: 3px;
+    background: #ffffff;
+    color: #686868;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    transition: background 0.15s;
+}
+
+.ext-btn-cancel:hover {
+    background: #f5f5f5;
+}
+
+.ext-btn-confirm {
+    flex: 1;
+    padding: 9px 0;
+    border: none;
+    border-radius: 3px;
+    background: #009ad9;
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    transition: background 0.15s;
+}
+
+.ext-btn-confirm:hover {
+    background: #14a9ea;
+}
