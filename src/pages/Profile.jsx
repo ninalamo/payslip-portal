@@ -39,9 +39,9 @@ const profile = {
     hdmf: "1211-0916-0615",
 
     emergencyContact: {
-        name: "—",
-        relationship: "—",
-        phone: "—",
+        name: "Joahnna Marie Condino Alamo",
+        relationship: "Wife",
+        phone: "+63 906 361 5667",
     },
 };
 

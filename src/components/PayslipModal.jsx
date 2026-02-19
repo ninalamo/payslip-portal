@@ -20,15 +20,14 @@ export default function PayslipModal({ payslip, employee, onClose }) {
     const { compensation: c, deductions: d, ytd, netPay } = payslip;
 
     const handleSimpleDownload = () => {
-        const href = PDF_FILES[payslip.id];
-        if (!href) return;
-        const a = document.createElement("a");
-        a.href = href;
-        a.download = href.split("/").pop();
-        a.click();
+        // Print the same layout but in black & white
+        document.body.classList.add("print-simple");
+        window.print();
+        setTimeout(() => document.body.classList.remove("print-simple"), 500);
     };
 
     const handleColoredPrint = () => {
+        // Print with full Shore360 colors
         window.print();
     };
 
@@ -38,24 +37,24 @@ export default function PayslipModal({ payslip, employee, onClose }) {
 
                 {/* ── ACTION BAR (hidden on print) ── */}
                 <div className="modal-actions no-print">
-                    {/* Simple download: the original PDF file */}
-                    <button className="dl-btn dl-simple" onClick={handleSimpleDownload} title="Download original PDF">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="14" height="14">
-                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                            <polyline points="7 10 12 15 17 10" />
-                            <line x1="12" y1="15" x2="12" y2="3" />
-                        </svg>
-                        Download Simple
-                    </button>
-
-                    {/* Colored: print the styled view */}
-                    <button className="dl-btn dl-colored" onClick={handleColoredPrint} title="Print / save as PDF (colored)">
+                    {/* Simple: same layout, black & white */}
+                    <button className="dl-btn dl-simple" onClick={handleSimpleDownload} title="Print in black & white">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="14" height="14">
                             <polyline points="6 9 6 2 18 2 18 9" />
                             <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
                             <rect x="6" y="14" width="12" height="8" />
                         </svg>
-                        Download Colored
+                        Print (Simple)
+                    </button>
+
+                    {/* Colored: same layout, full Shore360 colors */}
+                    <button className="dl-btn dl-colored" onClick={handleColoredPrint} title="Print with full Shore360 colors">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="14" height="14">
+                            <polyline points="6 9 6 2 18 2 18 9" />
+                            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
+                            <rect x="6" y="14" width="12" height="8" />
+                        </svg>
+                        Print (Colored)
                     </button>
 
                     <button className="close-btn" onClick={onClose} title="Close">✕</button>
