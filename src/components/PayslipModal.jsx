@@ -10,11 +10,12 @@ function fmt(n) {
 
 /* Map payslip id → the original PDF filename in /public */
 const PDF_FILES = {
-    1: "/payroll_for_2_1_2026_-_2_15_2026.pdf",
-    2: "/payroll_for_1_16_2026_-_1_31_2026.pdf",
-    3: "/payroll_for_1_1_2026_-_1_15_2026.pdf",
-    4: "/payroll_for_12_16_2025_-_12_31_2025.pdf",
-    5: "/payroll_for_12_1_2025_-_12_15_2025.pdf",
+    1: "/Payslip_2_16_2026_to_2_28_2026.pdf",
+    2: "/payroll_for_2_1_2026_-_2_15_2026.pdf",
+    3: "/payroll_for_1_16_2026_-_1_31_2026.pdf",
+    4: "/payroll_for_1_1_2026_-_1_15_2026.pdf",
+    5: "/payroll_for_12_16_2025_-_12_31_2025.pdf",
+    6: "/payroll_for_12_1_2025_-_12_15_2025.pdf",
 };
 
 export default function PayslipModal({ payslip, employee, onClose }) {

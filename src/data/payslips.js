@@ -11,6 +11,39 @@ export const employee = {
 export const payslips = [
     {
         id: 1,
+        period: "Feb 16–28, 2026",
+        dateCovered: "Payroll for 2/16/2026 - 2/28/2026",
+        payrollDate: "02 March 2026",
+        status: "Released",
+        compensation: {
+            basic: 73000.0,
+            deMinimisBenefits: 2000.0,
+            allowance: 0.0,
+            lateUndertime: 0.0,
+            absences: 0.0,
+            totalGross: 75000.0,
+        },
+        deductions: {
+            deMinimis: 0.0,
+            sss: 1000.0,
+            sssMpf: 750.0,
+            philhealth: 2500.0,
+            hdmf: 200.0,
+            tax: 15568.75,
+            totalDeductions: 20018.75,
+        },
+        netPay: 54981.25,
+        ytd: {
+            taxableGross: 292000.0,
+            tax: 62275.0,
+            sss: 1750.0,
+            phic: 2500.0,
+            hdmf: 200.0,
+            grossIncome: 300000.0,
+        },
+    },
+    {
+        id: 2,
         period: "Feb 1–15, 2026",
         dateCovered: "Payroll for 2/1/2026 - 2/15/2026",
         payrollDate: "18 February 2026",
@@ -43,7 +76,7 @@ export const payslips = [
         },
     },
     {
-        id: 2,
+        id: 3,
         period: "Jan 16–31, 2026",
         dateCovered: "Payroll for 1/16/2026 - 1/31/2026",
         payrollDate: "02 February 2026",
@@ -76,7 +109,7 @@ export const payslips = [
         },
     },
     {
-        id: 3,
+        id: 4,
         period: "Jan 1–15, 2026",
         dateCovered: "Payroll for 1/1/2026 - 1/15/2026",
         payrollDate: "17 January 2026",
@@ -109,7 +142,7 @@ export const payslips = [
         },
     },
     {
-        id: 4,
+        id: 5,
         period: "Dec 16–31, 2025",
         dateCovered: "Payroll for 12/16/2025 - 12/31/2025",
         payrollDate: "02 January 2026",
@@ -142,7 +175,7 @@ export const payslips = [
         },
     },
     {
-        id: 5,
+        id: 6,
         period: "Dec 1–15, 2025",
         dateCovered: "Payroll for 12/1/2025 - 12/15/2025",
         payrollDate: "16 December 2025",
