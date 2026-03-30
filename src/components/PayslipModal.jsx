@@ -10,6 +10,7 @@ function fmt(n) {
 
 /* Map payslip id → the original PDF filename in /public */
 const PDF_FILES = {
+    0: "/payroll_for_3_1_2026_-_3_15_2026.pdf",
     1: "/Payslip_2_16_2026_to_2_28_2026.pdf",
     2: "/payroll_for_2_1_2026_-_2_15_2026.pdf",
     3: "/payroll_for_1_16_2026_-_1_31_2026.pdf",

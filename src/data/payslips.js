@@ -10,6 +10,39 @@ export const employee = {
 
 export const payslips = [
     {
+        id: 0,
+        period: "Mar 1–15, 2026",
+        dateCovered: "Payroll for 3/1/2026 - 3/15/2026",
+        payrollDate: "18 March 2026",
+        status: "Released",
+        compensation: {
+            basic: 73000.0,
+            deMinimisBenefits: 2000.0,
+            allowance: 0.0,
+            lateUndertime: 0.0,
+            absences: 0.0,
+            totalGross: 75000.0,
+        },
+        deductions: {
+            deMinimis: 0.0,
+            sss: 0.0,
+            sssMpf: 0.0,
+            philhealth: 0.0,
+            hdmf: 0.0,
+            tax: 15568.75,
+            totalDeductions: 15568.75,
+        },
+        netPay: 59431.25,
+        ytd: {
+            taxableGross: 365000.0,
+            tax: 77843.75,
+            sss: 1750.0,
+            phic: 2500.0,
+            hdmf: 200.0,
+            grossIncome: 375000.0,
+        },
+    },
+    {
         id: 1,
         period: "Feb 16–28, 2026",
         dateCovered: "Payroll for 2/16/2026 - 2/28/2026",
