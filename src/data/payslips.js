@@ -67,12 +67,12 @@ export const payslips = [
         },
         netPay: 54981.25,
         ytd: {
-            taxableGross: 292000.0,
+            taxableGross: 511000.0,
             tax: 62275.0,
             sss: 1750.0,
             phic: 2500.0,
             hdmf: 200.0,
-            grossIncome: 300000.0,
+            grossIncome: 525000.0,
         },
     },
     {
@@ -100,12 +100,12 @@ export const payslips = [
         },
         netPay: 59431.25,
         ytd: {
-            taxableGross: 365000.0,
+            taxableGross: 438000.0,
             tax: 77843.75,
             sss: 1750.0,
             phic: 2500.0,
             hdmf: 200.0,
-            grossIncome: 375000.0,
+            grossIncome: 450000.0,
         },
     },
     {
