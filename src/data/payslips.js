@@ -13,7 +13,7 @@ export const payslips = [
         id: 0,
         period: "May 1–15, 2026",
         dateCovered: "Payroll for 5/1/2026 - 5/15/2026",
-        payrollDate: "1 May 2026",
+        payrollDate: "18 May 2026",
         status: "Released",
         compensation: {
             basic: 73000.0,
