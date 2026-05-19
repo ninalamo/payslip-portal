@@ -11,6 +11,40 @@ export const employee = {
 export const payslips = [
     {
         id: 0,
+        period: "May 1–15, 2026",
+        dateCovered: "Payroll for 5/1/2026 - 5/15/2026",
+        payrollDate: "1 May 2026",
+        status: "Released",
+        compensation: {
+            basic: 73000.0,
+            deMinimisBenefits: 2000.0,
+            allowance: 0.0,
+            lateUndertime: 0.0,
+            absences: 0.0,
+            totalGross: 75000.0,
+        },
+        deductions: {
+            deMinimis: 0.0,
+            sss: 0.0,
+            sssMpf: 0.0,
+            philhealth: 0.0,
+            hdmf: 0.0,
+            tax: 15568.75,
+            totalDeductions: 15568.75,
+        },
+        netPay: 59431.25,
+        ytd: {
+            taxableGross: 657000.0,
+            tax: 77843.75,
+            sss: 1750.0,
+            phic: 2500.0,
+            hdmf: 200.0,
+            grossIncome: 675000.0,
+        },
+    },
+
+    {
+        id: 1,
         period: "Apr 16–30, 2026",
         dateCovered: "Payroll for 4/16/2026 - 4/30/2026",
         payrollDate: "02 May 2026",
@@ -43,7 +77,7 @@ export const payslips = [
         },
     },
     {
-        id: 1,
+        id: 2,
         period: "Apr 1–15, 2026",
         dateCovered: "Payroll for 4/1/2026 - 4/15/2026",
         payrollDate: "18 April 2026",
@@ -77,7 +111,7 @@ export const payslips = [
     },
 
     {
-        id: 2,
+        id: 3,
         period: "Mar 16–31, 2026",
         dateCovered: "Payroll for 3/16/2026 - 3/31/2026",
         payrollDate: "02 April 2026",
@@ -110,7 +144,7 @@ export const payslips = [
         },
     },
     {
-        id: 3,
+        id:4,
         period: "Mar 1–15, 2026",
         dateCovered: "Payroll for 3/1/2026 - 3/15/2026",
         payrollDate: "18 March 2026",
@@ -143,7 +177,7 @@ export const payslips = [
         },
     },
     {
-        id: 4,
+        id: 5,
         period: "Feb 16–28, 2026",
         dateCovered: "Payroll for 2/16/2026 - 2/28/2026",
         payrollDate: "02 March 2026",
@@ -176,7 +210,7 @@ export const payslips = [
         },
     },
     {
-        id: 5,
+        id: 6,
         period: "Feb 1–15, 2026",
         dateCovered: "Payroll for 2/1/2026 - 2/15/2026",
         payrollDate: "18 February 2026",
@@ -209,7 +243,7 @@ export const payslips = [
         },
     },
     {
-        id: 6,
+        id: 7,
         period: "Jan 16–31, 2026",
         dateCovered: "Payroll for 1/16/2026 - 1/31/2026",
         payrollDate: "02 February 2026",
@@ -242,7 +276,7 @@ export const payslips = [
         },
     },
     {
-        id: 7,
+        id: 8,
         period: "Jan 1–15, 2026",
         dateCovered: "Payroll for 1/1/2026 - 1/15/2026",
         payrollDate: "17 January 2026",
@@ -275,7 +309,7 @@ export const payslips = [
         },
     },
     {
-        id: 8,
+        id: 9,
         period: "Dec 16–31, 2025",
         dateCovered: "Payroll for 12/16/2025 - 12/31/2025",
         payrollDate: "02 January 2026",
@@ -308,7 +342,7 @@ export const payslips = [
         },
     },
     {
-        id: 9,
+        id: 10,
         period: "Dec 1–15, 2025",
         dateCovered: "Payroll for 12/1/2025 - 12/15/2025",
         payrollDate: "16 December 2025",
