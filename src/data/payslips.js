@@ -8,370 +8,170 @@ export const employee = {
     position: "Employee",
 };
 
-export const payslips = [
-    {
-        id: 0,
-        period: "May 1–15, 2026",
-        dateCovered: "Payroll for 5/1/2026 - 5/15/2026",
-        payrollDate: "18 May 2026",
-        status: "Released",
-        compensation: {
-            basic: 73000.0,
-            deMinimisBenefits: 2000.0,
-            allowance: 0.0,
-            lateUndertime: 0.0,
-            absences: 0.0,
-            totalGross: 75000.0,
-        },
-        deductions: {
-            deMinimis: 0.0,
-            sss: 0.0,
-            sssMpf: 0.0,
-            philhealth: 0.0,
-            hdmf: 0.0,
-            tax: 15568.75,
-            totalDeductions: 15568.75,
-        },
-        netPay: 59431.25,
-        ytd: {
-            taxableGross: 657000.0,
-            tax: 77843.75,
-            sss: 1750.0,
-            phic: 2500.0,
-            hdmf: 200.0,
-            grossIncome: 675000.0,
-        },
-    },
+export const originalPayslips = buildPayslips();
 
-    {
-        id: 1,
-        period: "Apr 16–30, 2026",
-        dateCovered: "Payroll for 4/16/2026 - 4/30/2026",
-        payrollDate: "02 May 2026",
-        status: "Released",
-        compensation: {
-            basic: 73000.0,
-            deMinimisBenefits: 2000.0,
-            allowance: 0.0,
-            lateUndertime: 0.0,
-            absences: 0.0,
-            totalGross: 75000.0,
-        },
-        deductions: {
-            deMinimis: 0.0,
-            sss: 1000.0,
-            sssMpf: 750.0,
-            philhealth: 2500.0,
-            hdmf: 200.0,
-            tax: 15568.75,
-            totalDeductions: 20018.75,
-        },
-        netPay: 54981.25,
-        ytd: {
-            taxableGross: 584000.0,
-            tax: 62275.0,
-            sss: 1750.0,
-            phic: 2500.0,
-            hdmf: 200.0,
-            grossIncome: 600000.0,
-        },
-    },
-    {
-        id: 2,
-        period: "Apr 1–15, 2026",
-        dateCovered: "Payroll for 4/1/2026 - 4/15/2026",
-        payrollDate: "18 April 2026",
-        status: "Released",
-        compensation: {
-            basic: 73000.0,
-            deMinimisBenefits: 2000.0,
-            allowance: 0.0,
-            lateUndertime: 0.0,
-            absences: 0.0,
-            totalGross: 75000.0,
-        },
-        deductions: {
-            deMinimis: 0.0,
-            sss: 0.0,
-            sssMpf: 0.0,
-            philhealth: 0.0,
-            hdmf: 0.0,
-            tax: 15568.75,
-            totalDeductions: 15568.75,
-        },
-        netPay: 59431.25,
-        ytd: {
-            taxableGross: 511000.0,
-            tax: 77843.75,
-            sss: 1750.0,
-            phic: 2500.0,
-            hdmf: 200.0,
-            grossIncome: 525000.0,
-        },
-    },
+const BASE_COMPENSATION = {
+    basic: 73000.0,
+    deMinimisBenefits: 2000.0,
+    allowance: 0.0,
+    lateUndertime: 0.0,
+    absences: 0.0,
+    totalGross: 75000.0,
+};
 
-    {
-        id: 3,
-        period: "Mar 16–31, 2026",
-        dateCovered: "Payroll for 3/16/2026 - 3/31/2026",
-        payrollDate: "02 April 2026",
-        status: "Released",
-        compensation: {
-            basic: 73000.0,
-            deMinimisBenefits: 2000.0,
-            allowance: 0.0,
-            lateUndertime: 0.0,
-            absences: 0.0,
-            totalGross: 75000.0,
-        },
-        deductions: {
-            deMinimis: 0.0,
-            sss: 1000.0,
-            sssMpf: 750.0,
-            philhealth: 2500.0,
-            hdmf: 200.0,
-            tax: 15568.75,
-            totalDeductions: 20018.75,
-        },
-        netPay: 54981.25,
-        ytd: {
-            taxableGross: 438000.0,
-            tax: 62275.0,
-            sss: 1750.0,
-            phic: 2500.0,
-            hdmf: 200.0,
-            grossIncome: 450000.0,
-        },
-    },
-    {
-        id:4,
-        period: "Mar 1–15, 2026",
-        dateCovered: "Payroll for 3/1/2026 - 3/15/2026",
-        payrollDate: "18 March 2026",
-        status: "Released",
-        compensation: {
-            basic: 73000.0,
-            deMinimisBenefits: 2000.0,
-            allowance: 0.0,
-            lateUndertime: 0.0,
-            absences: 0.0,
-            totalGross: 75000.0,
-        },
-        deductions: {
-            deMinimis: 0.0,
-            sss: 0.0,
-            sssMpf: 0.0,
-            philhealth: 0.0,
-            hdmf: 0.0,
-            tax: 15568.75,
-            totalDeductions: 15568.75,
-        },
-        netPay: 59431.25,
-        ytd: {
-            taxableGross: 365000.0,
-            tax: 77843.75,
-            sss: 1750.0,
-            phic: 2500.0,
-            hdmf: 200.0,
-            grossIncome: 375000.0,
-        },
-    },
-    {
-        id: 5,
-        period: "Feb 16–28, 2026",
-        dateCovered: "Payroll for 2/16/2026 - 2/28/2026",
-        payrollDate: "02 March 2026",
-        status: "Released",
-        compensation: {
-            basic: 73000.0,
-            deMinimisBenefits: 2000.0,
-            allowance: 0.0,
-            lateUndertime: 0.0,
-            absences: 0.0,
-            totalGross: 75000.0,
-        },
-        deductions: {
-            deMinimis: 0.0,
-            sss: 1000.0,
-            sssMpf: 750.0,
-            philhealth: 2500.0,
-            hdmf: 200.0,
-            tax: 15568.75,
-            totalDeductions: 20018.75,
-        },
-        netPay: 54981.25,
-        ytd: {
-            taxableGross: 292000.0,
-            tax: 62275.0,
-            sss: 1750.0,
-            phic: 2500.0,
-            hdmf: 200.0,
-            grossIncome: 300000.0,
-        },
-    },
-    {
-        id: 6,
-        period: "Feb 1–15, 2026",
-        dateCovered: "Payroll for 2/1/2026 - 2/15/2026",
-        payrollDate: "18 February 2026",
-        status: "Released",
-        compensation: {
-            basic: 73000.0,
-            deMinimisBenefits: 2000.0,
-            allowance: 0.0,
-            lateUndertime: 0.0,
-            absences: 0.0,
-            totalGross: 75000.0,
-        },
-        deductions: {
-            deMinimis: 0.0,
-            sss: 0.0,
-            sssMpf: 0.0,
-            philhealth: 0.0,
-            hdmf: 0.0,
-            tax: 15568.75,
-            totalDeductions: 15568.75,
-        },
-        netPay: 59431.25,
-        ytd: {
-            taxableGross: 219000.0,
-            tax: 46706.25,
-            sss: 1750.0,
-            phic: 2500.0,
-            hdmf: 200.0,
-            grossIncome: 225000.0,
-        },
-    },
-    {
-        id: 7,
-        period: "Jan 16–31, 2026",
-        dateCovered: "Payroll for 1/16/2026 - 1/31/2026",
-        payrollDate: "02 February 2026",
-        status: "Released",
-        compensation: {
-            basic: 73000.0,
-            deMinimisBenefits: 2000.0,
-            allowance: 0.0,
-            lateUndertime: 0.0,
-            absences: 0.0,
-            totalGross: 75000.0,
-        },
-        deductions: {
-            deMinimis: 0.0,
-            sss: 1000.0,
-            sssMpf: 750.0,
-            philhealth: 2500.0,
-            hdmf: 200.0,
-            tax: 15568.75,
-            totalDeductions: 20018.75,
-        },
-        netPay: 54981.25,
-        ytd: {
-            taxableGross: 219000.0,
-            tax: 31836.50,
-            sss: 1750.0,
-            phic: 2500.0,
-            hdmf: 200.0,
-            grossIncome: 225000.0,
-        },
-    },
-    {
-        id: 8,
-        period: "Jan 1–15, 2026",
-        dateCovered: "Payroll for 1/1/2026 - 1/15/2026",
-        payrollDate: "17 January 2026",
-        status: "Released",
-        compensation: {
-            basic: 73000.0,
-            deMinimisBenefits: 2000.0,
-            allowance: 0.0,
-            lateUndertime: 0.0,
-            absences: 0.0,
-            totalGross: 75000.0,
-        },
-        deductions: {
-            deMinimis: 0.0,
-            sss: 0.0,
-            sssMpf: 0.0,
-            philhealth: 0.0,
-            hdmf: 0.0,
-            tax: 15568.75,
-            totalDeductions: 15568.75,
-        },
-        netPay: 59431.25,
-        ytd: {
-            taxableGross: 219000.0,
-            tax: 15568.75,
-            sss: 0.0,
-            phic: 0.0,
-            hdmf: 0.0,
-            grossIncome: 225000.0,
-        },
-    },
-    {
-        id: 9,
-        period: "Dec 16–31, 2025",
-        dateCovered: "Payroll for 12/16/2025 - 12/31/2025",
-        payrollDate: "02 January 2026",
-        status: "Released",
-        compensation: {
-            basic: 73000.0,
-            deMinimisBenefits: 2000.0,
-            allowance: 0.0,
-            lateUndertime: 0.0,
-            absences: 0.0,
-            totalGross: 75000.0,
-        },
-        deductions: {
-            deMinimis: 0.0,
-            sss: 1000.0,
-            sssMpf: 750.0,
-            philhealth: 2500.0,
-            hdmf: 200.0,
-            tax: 13998.13,
-            totalDeductions: 18448.13,
-        },
-        netPay: 56551.87,
-        ytd: {
-            taxableGross: 1529850.58,
-            tax: 284962.64,
-            sss: 17500.0,
-            phic: 25000.0,
-            hdmf: 2000.0,
-            grossIncome: 1708829.18,
-        },
-    },
-    {
-        id: 10,
-        period: "Dec 1–15, 2025",
-        dateCovered: "Payroll for 12/1/2025 - 12/15/2025",
-        payrollDate: "16 December 2025",
-        status: "Released",
-        compensation: {
-            basic: 73000.0,
-            deMinimisBenefits: 2000.0,
-            allowance: 0.0,
-            lateUndertime: 0.0,
-            absences: 0.0,
-            totalGross: 75000.0,
-        },
-        deductions: {
-            deMinimis: 0.0,
-            sss: 0.0,
-            sssMpf: 0.0,
-            philhealth: 0.0,
-            hdmf: 0.0,
-            tax: 13998.14,
-            totalDeductions: 13998.14,
-        },
-        netPay: 61001.86,
-        ytd: {
-            taxableGross: 1529850.58,
-            tax: 270964.51,
-            sss: 15750.0,
-            phic: 22500.0,
-            hdmf: 1800.0,
-            grossIncome: 1708829.18,
-        },
-    },
+const CONTRIBUTION_PATTERNS = [
+    { sss: 0.0, sssMpf: 0.0, philhealth: 0.0, hdmf: 0.0 },
+    { sss: 1000.0, sssMpf: 750.0, philhealth: 2500.0, hdmf: 200.0 },
 ];
+
+const MONTH_LABELS = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+];
+
+function lastDayOfMonth(year, monthIndex) {
+    return new Date(year, monthIndex + 1, 0).getDate();
+}
+
+function buildPeriod(year, monthIndex, half) {
+    const startDay = half === 1 ? 1 : 16;
+    const endDay = half === 1 ? 15 : lastDayOfMonth(year, monthIndex);
+    const period = `${MONTH_LABELS[monthIndex]} ${startDay}–${endDay}, ${year}`;
+    const dateCovered = `Payroll for ${monthIndex + 1}/${startDay}/${year} - ${monthIndex + 1}/${endDay}/${year}`;
+
+    let payrollYear = year;
+    let payrollMonth = monthIndex;
+    let payrollDay;
+
+    if (half === 1) {
+        payrollDay = 18;
+    } else {
+        payrollDay = 2;
+        payrollMonth = monthIndex + 1;
+        if (payrollMonth > 11) {
+            payrollMonth = 0;
+            payrollYear += 1;
+        }
+    }
+
+    const payrollDate = `${String(payrollDay).padStart(2, "0")} ${MONTH_LABELS[payrollMonth]} ${payrollYear}`;
+    const releaseDate = new Date(payrollYear, payrollMonth, payrollDay, 0, 0, 0);
+
+    return {
+        year,
+        monthIndex,
+        half,
+        period,
+        dateCovered,
+        payrollDate,
+        releaseDate,
+    };
+}
+
+function buildCandidatePeriods() {
+    const today = new Date();
+    const year = today.getFullYear();
+    const currentMonth = today.getMonth();
+    const periods = [];
+
+    for (let monthIndex = 0; monthIndex <= currentMonth; monthIndex += 1) {
+        periods.push(buildPeriod(year, monthIndex, 1));
+        periods.push(buildPeriod(year, monthIndex, 2));
+    }
+
+    return periods;
+}
+
+function getPeriodTax(year, contributionsApplied) {
+    if (year >= 2026) {
+        return 15568.75;
+    }
+    return contributionsApplied ? 13998.13 : 13998.14;
+}
+
+function buildPayslips() {
+    const today = new Date();
+    const candidatePeriods = buildCandidatePeriods();
+
+    const availablePeriods = candidatePeriods
+        .filter((period) => period.releaseDate <= today)
+        .sort((a, b) => {
+            if (a.year !== b.year) return a.year - b.year;
+            if (a.monthIndex !== b.monthIndex) return a.monthIndex - b.monthIndex;
+            return a.half - b.half;
+        });
+
+    const cumulative = {
+        taxableGross: 0,
+        grossIncome: 0,
+        tax: 0,
+        sss: 0,
+        phic: 0,
+        hdmf: 0,
+    };
+
+    const generated = availablePeriods.map((period, index) => {
+        const contributions = CONTRIBUTION_PATTERNS[index % CONTRIBUTION_PATTERNS.length];
+        const tax = getPeriodTax(period.year, contributions.sss > 0);
+        const totalDeductions =
+            contributions.sss +
+            contributions.sssMpf +
+            contributions.philhealth +
+            contributions.hdmf +
+            tax;
+        const netPay = BASE_COMPENSATION.totalGross - totalDeductions;
+
+        cumulative.taxableGross += BASE_COMPENSATION.basic;
+        cumulative.grossIncome += BASE_COMPENSATION.totalGross;
+        cumulative.tax += tax;
+        cumulative.sss += contributions.sss + contributions.sssMpf;
+        cumulative.phic += contributions.philhealth;
+        cumulative.hdmf += contributions.hdmf;
+
+        return {
+            period: period.period,
+            dateCovered: period.dateCovered,
+            payrollDate: period.payrollDate,
+            status: "Released",
+            compensation: { ...BASE_COMPENSATION },
+            deductions: {
+                deMinimis: 0.0,
+                sss: contributions.sss,
+                sssMpf: contributions.sssMpf,
+                philhealth: contributions.philhealth,
+                hdmf: contributions.hdmf,
+                tax,
+                totalDeductions,
+            },
+            netPay,
+            ytd: {
+                taxableGross: cumulative.taxableGross,
+                tax: cumulative.tax,
+                sss: cumulative.sss,
+                phic: cumulative.phic,
+                hdmf: cumulative.hdmf,
+                grossIncome: cumulative.grossIncome,
+            },
+        };
+    });
+
+    const descending = generated.reverse().map((record, index) => ({
+        ...record,
+        id: index + 1,
+    }));
+
+    return descending;
+}
+
+export const payslips = originalPayslips;
+
