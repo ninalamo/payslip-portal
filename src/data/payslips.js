@@ -8,8 +8,6 @@ export const employee = {
     position: "Employee",
 };
 
-export const originalPayslips = buildPayslips();
-
 const BASE_COMPENSATION = {
     basic: 73000.0,
     deMinimisBenefits: 2000.0,
@@ -173,5 +171,6 @@ function buildPayslips() {
     return descending;
 }
 
+export const originalPayslips = buildPayslips();
 export const payslips = originalPayslips;
 
